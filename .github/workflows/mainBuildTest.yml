@@ -1,19 +1,4 @@
-#
-# GitHub.com configuration for their actions system
-#
-# This provides Continuous Integration services.
-#  That means with each commit and push it runs tests.
-#  The goal is to continually run tests on changes to detect errors.
-#
-#  @author Aaron S. Crandall <crandall@gonzaga.edu>
-#  @copyright 2021
-#
-
 name: Final Project CI Pipeline
-
-# Controls when the action will run.
-# This will run on pushing to any branch, creating any pull request
-#  or if you run it manually via the web interface (workflow_dispatch)
 on: [push]
 
 # For non-pre built yahtzee containers, this needs to be done first.
