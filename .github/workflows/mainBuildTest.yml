@@ -5,10 +5,11 @@ jobs:
     name: "Setup Area"
     runs-on: [self-hosted, linux, CPSC334]
     steps:
-      run: |
-        apt update
-        apt install -y make
-        make setup-dependencies
+      - name: "Setting up dependencies"
+        run: |
+          apt update
+          apt install -y make
+          make setup-dependencies
   build:
     name: "Build Source"
     runs-on: [self-hosted, linux, CPSC334]
