@@ -1,17 +1,14 @@
 name: Final Project CI Pipeline
 on: [push]
-
-# For non-pre built yahtzee containers, this needs to be done first.
-  run: |
-    apt update
-    apt install -y make
-    make setup-dependencies
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-
-  # ****** BUILD ***************************************************************
-  # This workflow contains jobs to build this project
+  setup:
+    name: "Setup Area"
+    runs-on: [self-hosted, linux, CPSC334]
+    steps:
+      run: |
+        apt update
+        apt install -y make
+        make setup-dependencies
   build:
     name: "Build Source"
     runs-on: [self-hosted, linux, CPSC334]
@@ -26,7 +23,6 @@ jobs:
           name: yahtzee jar
           path: target/*.jar
 
-  # ***** TEST **************************************************************
   test:
     name: "Test Project"
     runs-on: [self-hosted, linux, CPSC334]
@@ -35,8 +31,6 @@ jobs:
       - uses: actions/checkout@v3
       - name: Test the software
         run: make test
-
-  # ***** Spellcheck **************************************************************
   spellcheck:
     name: "Spellcheck"
     runs-on: [self-hosted, linux, CPSC334]
