@@ -26,7 +26,7 @@ spellcheck:
 
 setup-dependencies:
 	apt update
-	apt install -y maven python3-pip checkstyle
+	apt install -y maven python3-pip checkstyle java
 	pip3 install codespell
 
 javadoc:
